@@ -14,11 +14,26 @@ function App() {
 	return (
 		<CssBaseline>
 			<Container>
-				<Typography variant="h2" component={'div'}>
-					<Box sx={{ textAlign: 'center' }}>
-						&#127968;{`Tal & Jake's Yard Sale`.toUpperCase()}&#127968;
-					</Box>
-				</Typography>
+				<Box
+					sx={{
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'center',
+						flexWrap: 'nowrap',
+					}}
+				>
+					<Typography variant="h4" component={'div'} sx={{ margin: '1em' }}>
+						<Box sx={{ textAlign: 'center' }}>&#127968;</Box>
+					</Typography>
+					<Typography variant="h4" component={'div'}>
+						<Box sx={{ textAlign: 'center' }}>
+							{`Tal & Jake's Yard Sale`.toUpperCase()}
+						</Box>
+					</Typography>
+					<Typography variant="h4" component={'div'} sx={{ margin: '1em' }}>
+						<Box sx={{ textAlign: 'center' }}>&#127968;</Box>
+					</Typography>
+				</Box>
 				<Grid container spacing={2}>
 					{items.map((item) => renderItemCard(item))}
 				</Grid>
