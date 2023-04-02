@@ -6,11 +6,10 @@ import {
 	CardMedia,
 	CardContent,
 	CardActions,
-	IconButton,
 	Typography,
 	SxProps,
+	Button,
 } from '@mui/material';
-import { Favorite, Share, Comment } from '@mui/icons-material';
 import SwiperCore, {
 	Keyboard,
 	Scrollbar,
@@ -21,11 +20,16 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { SaleItem } from '../demoData';
+import { ItemImage, SaleItem } from '../demoData';
+import { useState } from 'react';
+import { FullScreenImageModal } from './FullScreenImageModal';
 const useStyles = makeStyles()({
 	media: {
 		height: 0,
 		paddingTop: '100%',
+		':hover': {
+			cursor: 'zoom-in',
+		},
 	},
 	swiperContainer: {
 		paddingBottom: '3rem',
@@ -48,19 +52,58 @@ interface ISaleItemCardProps {
 }
 
 export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
-	const { title, description, images } = item;
-
+	const {
+		title,
+		description,
+		images,
+		dimensions: { x, y, z },
+		price,
+	} = item;
 	const { classes } = useStyles();
+	const [fullScreenImageToDisplay, setFullScreenImageToDisplay] = useState<
+		ItemImage | undefined
+	>(undefined);
+
+	const getNextImage = (image?: ItemImage) => {
+		if (image) {
+			const numOfImages = images.length;
+			const currentIndex = images.findIndex(
+				(_image) => _image.src === image.src
+			);
+			if (currentIndex === numOfImages - 1) {
+				return images[0];
+			} else return images[currentIndex + 1];
+		}
+	};
+
+	const getPrevImage = (image?: ItemImage) => {
+		if (image) {
+			const numOfImages = images.length;
+			const currentIndex = images.findIndex(
+				(_image) => _image.src === image.src
+			);
+			if (currentIndex === 0) {
+				return images[numOfImages - 1];
+			} else return images[currentIndex - 1];
+		}
+	};
+
 	return (
 		<Card sx={sx}>
-			<CardHeader
-				title={title}
-				// action={
-				//     <IconButton>
-				//         <MoreVert />
-				//     </IconButton>
-				// }
+			<FullScreenImageModal
+				open={!!fullScreenImageToDisplay}
+				handleClose={() => setFullScreenImageToDisplay(undefined)}
+				handleNextImage={() => {
+					const imageToDisplay = getNextImage(fullScreenImageToDisplay);
+					setFullScreenImageToDisplay(imageToDisplay);
+				}}
+				handlePrevImage={() => {
+					const imageToDisplay = getPrevImage(fullScreenImageToDisplay);
+					setFullScreenImageToDisplay(imageToDisplay);
+				}}
+				currentImage={fullScreenImageToDisplay}
 			/>
+			<CardHeader title={title} />
 			<Swiper
 				grabCursor
 				keyboard={{ enabled: true }}
@@ -71,25 +114,33 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 			>
 				{images.map((image, index) => (
 					<SwiperSlide key={index}>
-						<CardMedia className={classes.media} image={image.src} />
+						<CardMedia
+							className={classes.media}
+							image={image.src}
+							onClick={() => {
+								setFullScreenImageToDisplay(image);
+							}}
+						/>
 					</SwiperSlide>
 				))}
 			</Swiper>
-			<CardActions disableSpacing>
-				<IconButton>
-					<Favorite />
-				</IconButton>
-				<IconButton>
-					<Comment />
-				</IconButton>
-				<IconButton>
-					<Share />
-				</IconButton>
-			</CardActions>
 			<CardContent>
-				<Typography variant="body2" color="textSecondary" component="p">
+				<Typography
+					variant="body2"
+					color="textSecondary"
+					component="p"
+					height="3em"
+				>
 					{description}
 				</Typography>
+				<Typography
+					variant="caption"
+					component="p"
+				>{`${x}cm x ${y}cm x ${z}cm`}</Typography>
+				<Typography variant="h5">{`${price}₪`}</Typography>
+				<CardActions disableSpacing>
+					<Button>I want this!</Button>
+				</CardActions>
 			</CardContent>
 		</Card>
 	);
