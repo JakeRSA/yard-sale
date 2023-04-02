@@ -1,6 +1,6 @@
 import { Box, Container, CssBaseline, Grid, Typography } from '@mui/material';
 import { SaleItem, items } from './demoData';
-import { SaleItemCard } from './InstaCarousel/Carousel';
+import { SaleItemCard } from './SaleItemCard/SaleItemCard';
 
 function App() {
 	const renderItemCard = (item: SaleItem) => {
@@ -14,8 +14,10 @@ function App() {
 	return (
 		<CssBaseline>
 			<Container>
-				<Typography component={'div'}>
-					<Box sx={{ textAlign: 'center' }}>{`Tal & Jake's Yard Sale`}</Box>
+				<Typography variant="h2" component={'div'}>
+					<Box sx={{ textAlign: 'center' }}>
+						&#127968;{`Tal & Jake's Yard Sale`.toUpperCase()}&#127968;
+					</Box>
 				</Typography>
 				<Grid container spacing={2}>
 					{items.map((item) => renderItemCard(item))}

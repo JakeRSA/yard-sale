@@ -23,6 +23,7 @@ import 'swiper/css/scrollbar';
 import { ItemImage, SaleItem } from '../demoData';
 import { useState } from 'react';
 import { FullScreenImageModal } from './FullScreenImageModal';
+import { ItemReservationFormModal } from './ItemReservationFormModal';
 const useStyles = makeStyles()({
 	media: {
 		height: 0,
@@ -63,6 +64,11 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 	const [fullScreenImageToDisplay, setFullScreenImageToDisplay] = useState<
 		ItemImage | undefined
 	>(undefined);
+	const [isReserveItemModalOpen, setIsReserveItemModalOpen] = useState(false);
+
+	const openReserveItemForm = () => {
+		setIsReserveItemModalOpen(true);
+	};
 
 	const getNextImage = (image?: ItemImage) => {
 		if (image) {
@@ -90,6 +96,11 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 
 	return (
 		<Card sx={sx}>
+			<ItemReservationFormModal
+				open={isReserveItemModalOpen}
+				handleClose={() => setIsReserveItemModalOpen(false)}
+				item={item}
+			/>
 			<FullScreenImageModal
 				open={!!fullScreenImageToDisplay}
 				handleClose={() => setFullScreenImageToDisplay(undefined)}
@@ -139,7 +150,7 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 				>{`${x}cm x ${y}cm x ${z}cm`}</Typography>
 				<Typography variant="h5">{`${price}₪`}</Typography>
 				<CardActions disableSpacing>
-					<Button>I want this!</Button>
+					<Button onClick={() => openReserveItemForm()}>I want this!</Button>
 				</CardActions>
 			</CardContent>
 		</Card>

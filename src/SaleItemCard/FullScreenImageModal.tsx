@@ -68,7 +68,7 @@ export const FullScreenImageModal = ({
 					<img
 						src={currentImage?.src}
 						alt="asd"
-						style={{ maxHeight: '90%', maxWidth: '90%' }}
+						style={{ maxHeight: '90vh', maxWidth: '90%' }}
 					/>
 					<IconButton onClick={handleNextImage}>
 						<ArrowForwardIos />
