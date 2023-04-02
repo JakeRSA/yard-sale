@@ -24,6 +24,7 @@ import { ItemImage, SaleItem } from '../demoData';
 import { useState } from 'react';
 import { FullScreenImageModal } from './FullScreenImageModal';
 import { ItemReservationFormModal } from './ItemReservationFormModal';
+import { Favorite } from '@mui/icons-material';
 const useStyles = makeStyles()({
 	media: {
 		height: 0,
@@ -129,7 +130,9 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 							className={classes.media}
 							image={image.src}
 							onClick={() => {
-								setFullScreenImageToDisplay(image);
+								if (window.innerWidth >= 900) {
+									setFullScreenImageToDisplay(image);
+								}
 							}}
 						/>
 					</SwiperSlide>
@@ -150,7 +153,15 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 				>{`${x}cm x ${y}cm x ${z}cm`}</Typography>
 				<Typography variant="h5">{`${price}₪`}</Typography>
 				<CardActions disableSpacing>
-					<Button onClick={() => openReserveItemForm()}>I want this!</Button>
+					<Button
+						variant="contained"
+						fullWidth
+						onClick={() => openReserveItemForm()}
+						size="large"
+						startIcon={<Favorite />}
+					>
+						I want this!
+					</Button>
 				</CardActions>
 			</CardContent>
 		</Card>

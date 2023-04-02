@@ -1,4 +1,4 @@
-import { Modal, Paper, Box, IconButton } from '@mui/material';
+import { Modal, Paper, IconButton, Grid } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 import { ItemImage } from '../demoData';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
@@ -54,26 +54,34 @@ export const FullScreenImageModal = ({
 					alignItems: 'center',
 				}}
 			>
-				<Box
+				<Grid
+					container
 					sx={{
-						display: 'flex',
-						justifyContent: 'space-between',
 						alignItems: 'center',
-						width: '90%',
+						margin: '0',
+						height: '90%',
 					}}
+					wrap={'nowrap'}
+					zeroMinWidth
 				>
-					<IconButton onClick={handlePrevImage}>
-						<ArrowBackIos />
-					</IconButton>
-					<img
-						src={currentImage?.src}
-						alt="asd"
-						style={{ maxHeight: '90vh', maxWidth: '90%' }}
-					/>
-					<IconButton onClick={handleNextImage}>
-						<ArrowForwardIos />
-					</IconButton>
-				</Box>
+					<Grid item xs={1} sx={{ display: 'flex', justifyContent: 'center' }}>
+						<IconButton onClick={handlePrevImage}>
+							<ArrowBackIos />
+						</IconButton>
+					</Grid>
+					<Grid item xs={10} sx={{ display: 'flex', justifyContent: 'center' }}>
+						<img
+							src={currentImage?.src}
+							alt="asd"
+							style={{ maxHeight: '90vh', maxWidth: '90%' }}
+						/>
+					</Grid>
+					<Grid item xs={1} sx={{ display: 'flex', justifyContent: 'center' }}>
+						<IconButton onClick={handleNextImage}>
+							<ArrowForwardIos />
+						</IconButton>
+					</Grid>
+				</Grid>
 			</Paper>
 		</Modal>
 	);
