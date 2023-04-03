@@ -44,6 +44,7 @@
         }
     },
     "rules": {
+        "no-debugger": "warn",
         "linebreak-style": "off",
         // Configure prettier
         "prettier/prettier": [

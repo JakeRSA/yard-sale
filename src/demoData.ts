@@ -1,4 +1,8 @@
-type ItemStatus = 'available' | 'reserved' | 'sold';
+export enum ItemStatus {
+	AVAILABLE = 'available',
+	RESERVED = 'reserved',
+	SOLD = 'sold',
+}
 
 export interface ItemImage {
 	src: string;
@@ -14,13 +18,13 @@ export interface SaleItem {
 	images: ItemImage[];
 }
 
-export const items: SaleItem[] = [
+export const demoItems: SaleItem[] = [
 	{
 		title: 'Fridge',
 		description: 'this is our fridge',
 		dimensions: { x: 60, y: 160, z: 70 },
 		price: 800,
-		status: 'available',
+		status: ItemStatus.AVAILABLE,
 		images: [
 			{
 				src: 'https://cdn.thewirecutter.com/wp-content/media/2021/09/refrigerators-2048px-frigidaire-FFTR2021TS-topfreezer.jpg',
@@ -37,7 +41,7 @@ export const items: SaleItem[] = [
 		description: 'this is not a good microwave but it works',
 		dimensions: { x: 60, y: 50, z: 40 },
 		price: 100,
-		status: 'reserved',
+		status: ItemStatus.RESERVED,
 		images: [
 			{
 				src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDR1SCdcrU10xFRpA6ZEnTYRcX5509CGW7Un21R3npyHK0-CESDgWgSrMhiirAwezUC0c&usqp=CAU',
@@ -54,7 +58,7 @@ export const items: SaleItem[] = [
 		description: 'this is our fridge',
 		dimensions: { x: 60, y: 160, z: 70 },
 		price: 800,
-		status: 'available',
+		status: ItemStatus.AVAILABLE,
 		images: [
 			{
 				src: 'https://cdn.thewirecutter.com/wp-content/media/2021/09/refrigerators-2048px-frigidaire-FFTR2021TS-topfreezer.jpg',
@@ -71,7 +75,7 @@ export const items: SaleItem[] = [
 		description: 'this is not a good microwave but it works',
 		dimensions: { x: 60, y: 50, z: 40 },
 		price: 100,
-		status: 'reserved',
+		status: ItemStatus.RESERVED,
 		images: [
 			{
 				src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDR1SCdcrU10xFRpA6ZEnTYRcX5509CGW7Un21R3npyHK0-CESDgWgSrMhiirAwezUC0c&usqp=CAU',
@@ -88,7 +92,7 @@ export const items: SaleItem[] = [
 		description: 'this is our fridge',
 		dimensions: { x: 60, y: 160, z: 70 },
 		price: 800,
-		status: 'available',
+		status: ItemStatus.AVAILABLE,
 		images: [
 			{
 				src: 'https://cdn.thewirecutter.com/wp-content/media/2021/09/refrigerators-2048px-frigidaire-FFTR2021TS-topfreezer.jpg',
@@ -105,7 +109,7 @@ export const items: SaleItem[] = [
 		description: 'this is not a good microwave but it works',
 		dimensions: { x: 60, y: 50, z: 40 },
 		price: 100,
-		status: 'reserved',
+		status: ItemStatus.RESERVED,
 		images: [
 			{
 				src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDR1SCdcrU10xFRpA6ZEnTYRcX5509CGW7Un21R3npyHK0-CESDgWgSrMhiirAwezUC0c&usqp=CAU',
@@ -122,7 +126,7 @@ export const items: SaleItem[] = [
 		description: 'this is our fridge',
 		dimensions: { x: 60, y: 160, z: 70 },
 		price: 800,
-		status: 'available',
+		status: ItemStatus.AVAILABLE,
 		images: [
 			{
 				src: 'https://cdn.thewirecutter.com/wp-content/media/2021/09/refrigerators-2048px-frigidaire-FFTR2021TS-topfreezer.jpg',
@@ -139,7 +143,7 @@ export const items: SaleItem[] = [
 		description: 'this is not a good microwave but it works',
 		dimensions: { x: 60, y: 50, z: 40 },
 		price: 100,
-		status: 'reserved',
+		status: ItemStatus.RESERVED,
 		images: [
 			{
 				src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDR1SCdcrU10xFRpA6ZEnTYRcX5509CGW7Un21R3npyHK0-CESDgWgSrMhiirAwezUC0c&usqp=CAU',
@@ -156,7 +160,7 @@ export const items: SaleItem[] = [
 		description: 'this is our fridge',
 		dimensions: { x: 60, y: 160, z: 70 },
 		price: 800,
-		status: 'available',
+		status: ItemStatus.AVAILABLE,
 		images: [
 			{
 				src: 'https://cdn.thewirecutter.com/wp-content/media/2021/09/refrigerators-2048px-frigidaire-FFTR2021TS-topfreezer.jpg',
@@ -173,7 +177,7 @@ export const items: SaleItem[] = [
 		description: 'this is not a good microwave but it works',
 		dimensions: { x: 60, y: 50, z: 40 },
 		price: 100,
-		status: 'reserved',
+		status: ItemStatus.RESERVED,
 		images: [
 			{
 				src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDR1SCdcrU10xFRpA6ZEnTYRcX5509CGW7Un21R3npyHK0-CESDgWgSrMhiirAwezUC0c&usqp=CAU',
@@ -190,7 +194,7 @@ export const items: SaleItem[] = [
 		description: 'this is our fridge',
 		dimensions: { x: 60, y: 160, z: 70 },
 		price: 800,
-		status: 'available',
+		status: ItemStatus.AVAILABLE,
 		images: [
 			{
 				src: 'https://cdn.thewirecutter.com/wp-content/media/2021/09/refrigerators-2048px-frigidaire-FFTR2021TS-topfreezer.jpg',
@@ -207,7 +211,7 @@ export const items: SaleItem[] = [
 		description: 'this is not a good microwave but it works',
 		dimensions: { x: 60, y: 50, z: 40 },
 		price: 100,
-		status: 'reserved',
+		status: ItemStatus.RESERVED,
 		images: [
 			{
 				src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDR1SCdcrU10xFRpA6ZEnTYRcX5509CGW7Un21R3npyHK0-CESDgWgSrMhiirAwezUC0c&usqp=CAU',
@@ -224,7 +228,7 @@ export const items: SaleItem[] = [
 		description: 'this is our fridge',
 		dimensions: { x: 60, y: 160, z: 70 },
 		price: 800,
-		status: 'available',
+		status: ItemStatus.AVAILABLE,
 		images: [
 			{
 				src: 'https://cdn.thewirecutter.com/wp-content/media/2021/09/refrigerators-2048px-frigidaire-FFTR2021TS-topfreezer.jpg',
@@ -241,7 +245,7 @@ export const items: SaleItem[] = [
 		description: 'this is not a good microwave but it works',
 		dimensions: { x: 60, y: 50, z: 40 },
 		price: 100,
-		status: 'reserved',
+		status: ItemStatus.RESERVED,
 		images: [
 			{
 				src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDR1SCdcrU10xFRpA6ZEnTYRcX5509CGW7Un21R3npyHK0-CESDgWgSrMhiirAwezUC0c&usqp=CAU',
@@ -258,7 +262,7 @@ export const items: SaleItem[] = [
 		description: 'this is our fridge',
 		dimensions: { x: 60, y: 160, z: 70 },
 		price: 800,
-		status: 'available',
+		status: ItemStatus.AVAILABLE,
 		images: [
 			{
 				src: 'https://cdn.thewirecutter.com/wp-content/media/2021/09/refrigerators-2048px-frigidaire-FFTR2021TS-topfreezer.jpg',
@@ -275,7 +279,7 @@ export const items: SaleItem[] = [
 		description: 'this is not a good microwave but it works',
 		dimensions: { x: 60, y: 50, z: 40 },
 		price: 100,
-		status: 'reserved',
+		status: ItemStatus.RESERVED,
 		images: [
 			{
 				src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDR1SCdcrU10xFRpA6ZEnTYRcX5509CGW7Un21R3npyHK0-CESDgWgSrMhiirAwezUC0c&usqp=CAU',
@@ -292,7 +296,7 @@ export const items: SaleItem[] = [
 		description: 'this is our fridge',
 		dimensions: { x: 60, y: 160, z: 70 },
 		price: 800,
-		status: 'available',
+		status: ItemStatus.AVAILABLE,
 		images: [
 			{
 				src: 'https://cdn.thewirecutter.com/wp-content/media/2021/09/refrigerators-2048px-frigidaire-FFTR2021TS-topfreezer.jpg',
@@ -309,7 +313,7 @@ export const items: SaleItem[] = [
 		description: 'this is not a good microwave but it works',
 		dimensions: { x: 60, y: 50, z: 40 },
 		price: 100,
-		status: 'reserved',
+		status: ItemStatus.RESERVED,
 		images: [
 			{
 				src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDR1SCdcrU10xFRpA6ZEnTYRcX5509CGW7Un21R3npyHK0-CESDgWgSrMhiirAwezUC0c&usqp=CAU',
@@ -326,7 +330,7 @@ export const items: SaleItem[] = [
 		description: 'this is our fridge',
 		dimensions: { x: 60, y: 160, z: 70 },
 		price: 800,
-		status: 'available',
+		status: ItemStatus.AVAILABLE,
 		images: [
 			{
 				src: 'https://cdn.thewirecutter.com/wp-content/media/2021/09/refrigerators-2048px-frigidaire-FFTR2021TS-topfreezer.jpg',
@@ -343,7 +347,7 @@ export const items: SaleItem[] = [
 		description: 'this is not a good microwave but it works',
 		dimensions: { x: 60, y: 50, z: 40 },
 		price: 100,
-		status: 'reserved',
+		status: ItemStatus.RESERVED,
 		images: [
 			{
 				src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDR1SCdcrU10xFRpA6ZEnTYRcX5509CGW7Un21R3npyHK0-CESDgWgSrMhiirAwezUC0c&usqp=CAU',
@@ -360,7 +364,7 @@ export const items: SaleItem[] = [
 		description: 'this is our fridge',
 		dimensions: { x: 60, y: 160, z: 70 },
 		price: 800,
-		status: 'available',
+		status: ItemStatus.AVAILABLE,
 		images: [
 			{
 				src: 'https://cdn.thewirecutter.com/wp-content/media/2021/09/refrigerators-2048px-frigidaire-FFTR2021TS-topfreezer.jpg',
@@ -377,7 +381,7 @@ export const items: SaleItem[] = [
 		description: 'this is not a good microwave but it works',
 		dimensions: { x: 60, y: 50, z: 40 },
 		price: 100,
-		status: 'reserved',
+		status: ItemStatus.RESERVED,
 		images: [
 			{
 				src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDR1SCdcrU10xFRpA6ZEnTYRcX5509CGW7Un21R3npyHK0-CESDgWgSrMhiirAwezUC0c&usqp=CAU',
@@ -394,7 +398,7 @@ export const items: SaleItem[] = [
 		description: 'this is our fridge',
 		dimensions: { x: 60, y: 160, z: 70 },
 		price: 800,
-		status: 'available',
+		status: ItemStatus.AVAILABLE,
 		images: [
 			{
 				src: 'https://cdn.thewirecutter.com/wp-content/media/2021/09/refrigerators-2048px-frigidaire-FFTR2021TS-topfreezer.jpg',
@@ -411,7 +415,7 @@ export const items: SaleItem[] = [
 		description: 'this is not a good microwave but it works',
 		dimensions: { x: 60, y: 50, z: 40 },
 		price: 100,
-		status: 'reserved',
+		status: ItemStatus.RESERVED,
 		images: [
 			{
 				src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDR1SCdcrU10xFRpA6ZEnTYRcX5509CGW7Un21R3npyHK0-CESDgWgSrMhiirAwezUC0c&usqp=CAU',
