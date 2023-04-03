@@ -7,7 +7,7 @@ import {
 	Typography,
 } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
-import { SaleItem } from '../demoData';
+import { SaleItem } from '../../mock/demoData';
 
 interface IItemReservationFormModalProps {
 	open: boolean;

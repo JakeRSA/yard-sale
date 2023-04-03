@@ -1,5 +1,5 @@
 import { Container, CssBaseline, Grid, SelectChangeEvent } from '@mui/material';
-import { ItemStatus, SaleItem, demoItems } from './demoData';
+import { ItemStatus, SaleItem, demoItems } from '../mock/demoData';
 import { SaleItemCard } from './SaleItemCard/SaleItemCard';
 import { FilterValue, SortValue, TableToolbar } from './TableToolbar';
 import { PageHeader } from './PageHeader';

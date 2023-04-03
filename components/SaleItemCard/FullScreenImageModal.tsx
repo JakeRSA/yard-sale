@@ -1,6 +1,6 @@
 import { Modal, Paper, IconButton, Grid } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
-import { ItemImage } from '../demoData';
+import { ItemImage } from '../../mock/demoData';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 
 const useStyles = makeStyles()({
@@ -62,7 +62,6 @@ export const FullScreenImageModal = ({
 						height: '90%',
 					}}
 					wrap={'nowrap'}
-					zeroMinWidth
 				>
 					<Grid item xs={1} sx={{ display: 'flex', justifyContent: 'center' }}>
 						<IconButton onClick={handlePrevImage}>
