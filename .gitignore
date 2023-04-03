@@ -20,6 +20,7 @@
 .next/
 .swc/
 .*.env
+.env
 
 npm-debug.log*
 yarn-debug.log*

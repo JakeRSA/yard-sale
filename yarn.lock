@@ -1881,6 +1881,23 @@
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@popperjs/core/-/core-2.11.7.tgz#ccab5c8f7dc557a52ca3288c10075c9ccd37fff7"
   integrity sha1-zKtcj33FV6UsoyiMEAdcnM03//c=
 
+"@prisma/client@4.12.0":
+  version "4.12.0"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@prisma/client/-/client-4.12.0.tgz#119b692888b1fe0fd3305c7d0e0ac48520aa6839"
+  integrity sha1-EZtpKIix/g/TMFx9DgrEhSCqaDk=
+  dependencies:
+    "@prisma/engines-version" "4.12.0-67.659ef412370fa3b41cd7bf6e94587c1dfb7f67e7"
+
+"@prisma/engines-version@4.12.0-67.659ef412370fa3b41cd7bf6e94587c1dfb7f67e7":
+  version "4.12.0-67.659ef412370fa3b41cd7bf6e94587c1dfb7f67e7"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@prisma/engines-version/-/engines-version-4.12.0-67.659ef412370fa3b41cd7bf6e94587c1dfb7f67e7.tgz#51a1cc5c886564b542acde64a873645d0dee2566"
+  integrity sha1-UaHMXIhlZLVCrN5kqHNkXQ3uJWY=
+
+"@prisma/engines@4.12.0":
+  version "4.12.0"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@prisma/engines/-/engines-4.12.0.tgz#68d99078b70b2d9c339d0e8cbf2e99f00b72aa8c"
+  integrity sha1-aNmQeLcLLZwznQ6Mvy6Z8Atyqow=
+
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@rollup/plugin-babel/-/plugin-babel-5.3.1.tgz#04bc0608f4aa4b2e4b1aebf284344d0f68fda283"
@@ -7821,6 +7838,13 @@ pretty-format@^29.0.0, pretty-format@^29.5.0:
     "@jest/schemas" "^29.4.3"
     ansi-styles "^5.0.0"
     react-is "^18.0.0"
+
+prisma@^4.12.0:
+  version "4.12.0"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/prisma/-/prisma-4.12.0.tgz#1080eda951928cb3b0274ad29da9ae4f93143d68"
+  integrity sha1-EIDtqVGSjLOwJ0rSnamuT5MUPWg=
+  dependencies:
+    "@prisma/engines" "4.12.0"
 
 process-nextick-args@~2.0.0:
   version "2.0.1"
