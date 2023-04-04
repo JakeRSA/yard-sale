@@ -7,7 +7,7 @@ import {
 	TableToolbar,
 } from '../components/TableToolbar';
 import { PageHeader } from '../components/PageHeader';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { PrismaClient } from '@prisma/client';
 
 interface IAppProps {
@@ -15,8 +15,7 @@ interface IAppProps {
 	images: Image[];
 }
 
-function App({ items, images }: IAppProps) {
-	console.log({items, images})
+function App({ items }: IAppProps) {
 	const [sortedItems, setSortedItems] = useState(items);
 	const [itemsToDisplay, setItemsToDisplay] = useState(sortedItems);
 	const [filterValue, setFilterValue] = useState(FilterValue.AVAILABLE);
@@ -55,6 +54,22 @@ function App({ items, images }: IAppProps) {
 		});
 		setSortedItems(newlySortedItems);
 	};
+
+	useEffect(() => {
+		const filteredItems = sortedItems.filter((item) => {
+			switch (filterValue) {
+				case FilterValue.ALL:
+					return item;
+				case FilterValue.AVAILABLE:
+					return item.status === ItemStatus.AVAILABLE;
+				case FilterValue.RESERVED:
+					return item.status === ItemStatus.RESERVED;
+				default:
+					return item;
+			}
+		});
+		setItemsToDisplay(filteredItems);
+	}, [sortedItems]);
 
 	const renderItemCard = (item: SaleItem, index: number) => {
 		return (
@@ -100,7 +115,6 @@ export async function getStaticProps() {
 	return {
 		props: {
 			items,
-			images,
 		},
 	};
 }

@@ -31,7 +31,7 @@
     "dev": "next dev",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "tsc --noEmit && eslint src/**/*.ts{,x} --cache --max-warnings=0",
+    "lint": "next lint",
     "lint:fix": "eslint src/**/*.ts{,x} --fix"
   },
   "type": "module",
