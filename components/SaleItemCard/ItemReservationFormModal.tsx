@@ -8,6 +8,8 @@ import {
 } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 import { SaleItem } from '../../types/generalTypes';
+import { ChangeEvent, useState } from 'react';
+import axios from 'axios';
 
 interface IItemReservationFormModalProps {
 	open: boolean;
@@ -39,6 +41,23 @@ export const ItemReservationFormModal = ({
 	item,
 }: IItemReservationFormModalProps) => {
 	const { classes } = useStyles();
+
+	const [buyerName, setBuyerName] = useState('');
+	const [buyerPhone, setBuyerPhone] = useState('');
+	const updateBuyerName = (e: ChangeEvent<HTMLInputElement>) => {
+		setBuyerName(e.target.value);
+	};
+	const updateBuyerPhone = (e: ChangeEvent<HTMLInputElement>) => {
+		setBuyerPhone(e.target.value);
+	};
+
+	const handleSubmit = async () => {
+		await axios.post('/api/buyer', {
+			item,
+			name: buyerName,
+			phone: buyerPhone,
+		});
+	};
 	return (
 		<Modal open={open} onClose={handleClose} className={classes.modal}>
 			<Paper
@@ -53,6 +72,8 @@ export const ItemReservationFormModal = ({
 				<Grid container spacing={3}>
 					<Grid item xs={12}>
 						<TextField
+							onChange={updateBuyerName}
+							value={buyerName}
 							required
 							id="name"
 							name="name"
@@ -64,6 +85,8 @@ export const ItemReservationFormModal = ({
 					</Grid>
 					<Grid item xs={12}>
 						<TextField
+							onChange={updateBuyerPhone}
+							value={buyerPhone}
 							required
 							id="phone"
 							name="phone"
@@ -74,7 +97,12 @@ export const ItemReservationFormModal = ({
 						/>
 					</Grid>
 				</Grid>
-				<Button sx={{ marginTop: '2em' }} fullWidth>
+				<Button
+					sx={{ marginTop: '2em' }}
+					// eslint-disable-next-line
+					onClick={handleSubmit}
+					fullWidth
+				>
 					Send request to Tal & Jake
 				</Button>
 			</Paper>

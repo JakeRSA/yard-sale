@@ -8,21 +8,38 @@ datasource db {
 }
 
 model Image {
-  imageId Int @id @default(autoincrement())
+  id Int @id @default(autoincrement())
   itemId Int 
-  saleItem SaleItem @relation(fields: [itemId], references: [itemId])
+  saleItem SaleItem @relation(fields: [itemId], references: [id])
   src String
 }
 
 
 model SaleItem {
-  itemId  Int @id @default(autoincrement())
+  id  Int @id @default(autoincrement())
   title String
   description String
   x  Int
   y Int
   z Int
   price Int
-  status String
+  buyers BuyersOnSaleItem[]
   images Image[]
+}
+
+model Buyer {
+  id Int @id @default(autoincrement())
+  name String
+  phone String @unique
+  items BuyersOnSaleItem[]
+}
+
+model BuyersOnSaleItem {
+  saleItem SaleItem @relation(fields: [itemId], references: [id])
+  itemId Int
+  buyer Buyer @relation(fields: [buyerId], references: [id])
+  buyerId Int
+  assignedAt DateTime @default(now())
+
+  @@id([itemId, buyerId])
 }

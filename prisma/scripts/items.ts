@@ -1,5 +1,3 @@
-import { SaleItem } from '../types/generalTypes';
-
 export const items = [
 	{
 		title: 'tv',
@@ -8,7 +6,6 @@ export const items = [
 		y: 0,
 		z: 0,
 		price: 1800,
-		status: 'available',
 		images: [
 			{
 				src: 'https://filedn.com/ly26l0AIs1CYrO29uHy9zDm/Yard%20Sale/Oven/81KRhLp0JGL._SL1500_.jpg',
@@ -25,7 +22,6 @@ export const items = [
 		y: 0,
 		z: 0,
 		price: 800,
-		status: 'reserved',
 		images: [
 			{
 				src: 'https://filedn.com/ly26l0AIs1CYrO29uHy9zDm/Yard%20Sale/TV/placesandspaces.jpeg',

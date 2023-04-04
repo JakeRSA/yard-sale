@@ -1,5 +1,5 @@
 import { Container, CssBaseline, Grid, SelectChangeEvent } from '@mui/material';
-import { ItemStatus, SaleItem, Image } from '../types/generalTypes';
+import { SaleItem, Image } from '../types/generalTypes';
 import { SaleItemCard } from '../components/SaleItemCard/SaleItemCard';
 import {
 	FilterValue,
@@ -18,7 +18,7 @@ interface IAppProps {
 function App({ items }: IAppProps) {
 	const [sortedItems, setSortedItems] = useState(items);
 	const [itemsToDisplay, setItemsToDisplay] = useState(sortedItems);
-	const [filterValue, setFilterValue] = useState(FilterValue.AVAILABLE);
+	const [filterValue, setFilterValue] = useState(FilterValue.ALL);
 	const [sortValue, setSortValue] = useState(SortValue.NAME);
 
 	const handleChangeFilterValue = (e: SelectChangeEvent<FilterValue>) => {
@@ -29,9 +29,9 @@ function App({ items }: IAppProps) {
 				case FilterValue.ALL:
 					return item;
 				case FilterValue.AVAILABLE:
-					return item.status === ItemStatus.AVAILABLE;
+					return !item.buyerIdsOnSaleItem.length;
 				case FilterValue.RESERVED:
-					return item.status === ItemStatus.RESERVED;
+					return !!item.buyerIdsOnSaleItem.length;
 				default:
 					return item;
 			}
@@ -61,9 +61,9 @@ function App({ items }: IAppProps) {
 				case FilterValue.ALL:
 					return item;
 				case FilterValue.AVAILABLE:
-					return item.status === ItemStatus.AVAILABLE;
+					return !item.buyerIdsOnSaleItem.length;
 				case FilterValue.RESERVED:
-					return item.status === ItemStatus.RESERVED;
+					return !!item.buyerIdsOnSaleItem.length;
 				default:
 					return item;
 			}
@@ -101,12 +101,21 @@ export async function getStaticProps() {
 	const prisma = new PrismaClient();
 	const saleItems = await prisma.saleItem.findMany();
 	const images = await prisma.image.findMany();
+	const buyersOnSaleItem = await prisma.buyersOnSaleItem.findMany();
 	const items: SaleItem[] = saleItems.map((dbItem) => ({
 		...dbItem,
 		images: [],
+		buyerIdsOnSaleItem: [],
 	}));
+	buyersOnSaleItem.forEach((buyer) => {
+		const itemToMutate = items.find((item) => item.id === buyer.itemId);
+		itemToMutate?.buyerIdsOnSaleItem.push({
+			...buyer,
+			assignedAt: buyer.assignedAt.getTime(),
+		});
+	});
 	images.forEach((image) => {
-		const itemForImage = items.find((item) => item.itemId === image.itemId);
+		const itemForImage = items.find((item) => item.id === image.itemId);
 		if (itemForImage) {
 			itemForImage?.images.push(image);
 		}

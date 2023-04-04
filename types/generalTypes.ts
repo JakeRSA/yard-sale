@@ -1,13 +1,15 @@
-import { SaleItem as DbSaleItem, Image as DbImage } from '@prisma/client';
+import {
+	SaleItem as DbSaleItem,
+	Image as DbImage,
+	BuyersOnSaleItem as DbBuyersOnSaleItem,
+} from '@prisma/client';
 
-export enum ItemStatus {
-	AVAILABLE = 'available',
-	RESERVED = 'reserved',
-	SOLD = 'sold',
+export type Image = Pick<DbImage, 'src' | 'id'>;
+
+interface BuyerIdOnSaleItem extends Omit<DbBuyersOnSaleItem, 'assignedAt'> {
+	assignedAt: number;
 }
-
-export type Image = Pick<DbImage, 'src' | 'imageId'>;
-
 export interface SaleItem extends DbSaleItem {
 	images: Image[];
+	buyerIdsOnSaleItem: BuyerIdOnSaleItem[];
 }

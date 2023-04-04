@@ -4,10 +4,12 @@ import { items } from './items';
 const prisma = new PrismaClient();
 
 async function main() {
-	await prisma.saleItem.deleteMany();
+	await prisma.buyersOnSaleItem.deleteMany();
+	await prisma.buyer.deleteMany();
 	await prisma.image.deleteMany();
+	await prisma.saleItem.deleteMany();
 	for (const item of items) {
-		const { title, description, x, y, z, price, status, images } = item;
+		const { title, description, x, y, z, price, images } = item;
 		const createdItem = await prisma.saleItem.create({
 			data: {
 				title,
@@ -16,13 +18,12 @@ async function main() {
 				y,
 				z,
 				price,
-				status,
 			},
 		});
 		for (const image of images) {
 			await prisma.image.create({
 				data: {
-					itemId: createdItem.itemId,
+					itemId: createdItem.id,
 					src: image.src,
 				},
 			});
