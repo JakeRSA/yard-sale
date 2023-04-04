@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -12,7 +12,6 @@ model Image {
   itemId Int 
   saleItem SaleItem @relation(fields: [imageId], references: [itemId])
   src String
-  filename String
 }
 
 
