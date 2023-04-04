@@ -1,8 +1,7 @@
 import { SaleItem } from '../types/generalTypes';
 
-export const items: SaleItem[] = [
+export const items = [
 	{
-		itemId: 0,
 		title: 'tv',
 		description: 'Samsung 55 inch',
 		x: 0,
@@ -20,7 +19,6 @@ export const items: SaleItem[] = [
 		],
 	},
 	{
-		itemId: 1,
 		title: 'oven',
 		description: 'Breville Smart Oven',
 		x: 0,

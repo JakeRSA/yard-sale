@@ -6,7 +6,7 @@ export enum ItemStatus {
 	SOLD = 'sold',
 }
 
-export type Image = Pick<DbImage, 'src'>;
+export type Image = Pick<DbImage, 'src' | 'imageId'>;
 
 export interface SaleItem extends DbSaleItem {
 	images: Image[];

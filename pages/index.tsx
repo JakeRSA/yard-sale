@@ -1,15 +1,5 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
-// import App from '../src/App';
-
-// const root = ReactDOM.createRoot(document.getElementById('root')!);
-// root.render(
-// 	<React.StrictMode>
-// 		<App />
-// 	</React.StrictMode>
-// );
 import { Container, CssBaseline, Grid, SelectChangeEvent } from '@mui/material';
-import { ItemStatus, SaleItem, demoItems } from '../mock/demoData';
+import { ItemStatus, SaleItem, Image } from '../types/generalTypes';
 import { SaleItemCard } from '../components/SaleItemCard/SaleItemCard';
 import {
 	FilterValue,
@@ -18,9 +8,16 @@ import {
 } from '../components/TableToolbar';
 import { PageHeader } from '../components/PageHeader';
 import { useState } from 'react';
+import { PrismaClient } from '@prisma/client';
 
-function App() {
-	const [sortedItems, setSortedItems] = useState(demoItems);
+interface IAppProps {
+	items: SaleItem[];
+	images: Image[];
+}
+
+function App({ items, images }: IAppProps) {
+	console.log({items, images})
+	const [sortedItems, setSortedItems] = useState(items);
 	const [itemsToDisplay, setItemsToDisplay] = useState(sortedItems);
 	const [filterValue, setFilterValue] = useState(FilterValue.AVAILABLE);
 	const [sortValue, setSortValue] = useState(SortValue.NAME);
@@ -83,6 +80,29 @@ function App() {
 			</Container>
 		</CssBaseline>
 	);
+}
+
+export async function getStaticProps() {
+	const prisma = new PrismaClient();
+	const saleItems = await prisma.saleItem.findMany();
+	const images = await prisma.image.findMany();
+	const items: SaleItem[] = saleItems.map((dbItem) => ({
+		...dbItem,
+		images: [],
+	}));
+	images.forEach((image) => {
+		const itemForImage = items.find((item) => item.itemId === image.itemId);
+		if (itemForImage) {
+			itemForImage?.images.push(image);
+		}
+	});
+
+	return {
+		props: {
+			items,
+			images,
+		},
+	};
 }
 
 export default App;

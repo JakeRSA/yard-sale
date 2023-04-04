@@ -20,7 +20,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { ItemImage, SaleItem } from '../../mock/demoData';
+import { Image, SaleItem } from '../../types/generalTypes';
 import { useState } from 'react';
 import { FullScreenImageModal } from './FullScreenImageModal';
 import { ItemReservationFormModal } from './ItemReservationFormModal';
@@ -54,16 +54,10 @@ interface ISaleItemCardProps {
 }
 
 export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
-	const {
-		title,
-		description,
-		images,
-		dimensions: { x, y, z },
-		price,
-	} = item;
+	const { title, description, images, x, y, z, price } = item;
 	const { classes } = useStyles();
 	const [fullScreenImageToDisplay, setFullScreenImageToDisplay] = useState<
-		ItemImage | undefined
+		Image | undefined
 	>(undefined);
 	const [isReserveItemModalOpen, setIsReserveItemModalOpen] = useState(false);
 
@@ -71,7 +65,7 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 		setIsReserveItemModalOpen(true);
 	};
 
-	const getNextImage = (image?: ItemImage) => {
+	const getNextImage = (image?: Image) => {
 		if (image) {
 			const numOfImages = images.length;
 			const currentIndex = images.findIndex(
@@ -83,7 +77,7 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 		}
 	};
 
-	const getPrevImage = (image?: ItemImage) => {
+	const getPrevImage = (image?: Image) => {
 		if (image) {
 			const numOfImages = images.length;
 			const currentIndex = images.findIndex(

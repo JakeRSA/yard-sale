@@ -1,6 +1,6 @@
 import { Modal, Paper, IconButton, Grid } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
-import { ItemImage } from '../../mock/demoData';
+import { Image } from '../../types/generalTypes';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 
 const useStyles = makeStyles()({
@@ -26,7 +26,7 @@ interface IFullScreenImageModalProps {
 	handleClose: () => void;
 	handleNextImage: () => void;
 	handlePrevImage: () => void;
-	currentImage?: ItemImage;
+	currentImage?: Image;
 }
 
 export const FullScreenImageModal = ({

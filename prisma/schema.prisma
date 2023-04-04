@@ -10,7 +10,7 @@ datasource db {
 model Image {
   imageId Int @id @default(autoincrement())
   itemId Int 
-  saleItem SaleItem @relation(fields: [imageId], references: [itemId])
+  saleItem SaleItem @relation(fields: [itemId], references: [itemId])
   src String
 }
 

@@ -1,4 +1,4 @@
-import { ItemStatus, SaleItem } from '../types/generalTypes';
+import { SaleItem } from '../types/generalTypes';
 
 export const demoItems: SaleItem[] = [
 	// {
