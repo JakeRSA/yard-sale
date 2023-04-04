@@ -9,6 +9,7 @@ import {
 	Typography,
 	SxProps,
 	Button,
+	Alert,
 } from '@mui/material';
 import SwiperCore, {
 	Keyboard,
@@ -145,7 +146,29 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 					variant="caption"
 					component="p"
 				>{`${x}cm x ${y}cm x ${z}cm`}</Typography>
-				<Typography variant="h5">{`${price}₪`}</Typography>
+				<Typography
+					variant="h5"
+					sx={{
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'space-between',
+						height: '50px',
+					}}
+				>
+					{`${price}₪`}
+					{!!item.buyerIdsOnSaleItem.length && (
+						<Alert
+							sx={{
+								marginLeft: '0.5em',
+								marginRight: '0.5em',
+								background: 'none',
+							}}
+							severity="warning"
+						>
+							{`Someone's interested`}
+						</Alert>
+					)}
+				</Typography>
 				<CardActions disableSpacing>
 					<Button
 						variant="contained"

@@ -1,4 +1,5 @@
 import {
+	Alert,
 	Button,
 	Grid,
 	Modal,
@@ -97,12 +98,13 @@ export const ItemReservationFormModal = ({
 						/>
 					</Grid>
 				</Grid>
-				<Button
-					sx={{ marginTop: '2em' }}
-					// eslint-disable-next-line
-					onClick={handleSubmit}
-					fullWidth
-				>
+				{!!item.buyerIdsOnSaleItem.length && (
+					<Alert
+						severity="warning"
+						sx={{ marginTop: '2em' }}
+					>{`Someone else asked for this before you. But if they decide they don't want it anymore, you'll get a chance`}</Alert>
+				)}
+				<Button sx={{ marginTop: '2em' }} onClick={handleSubmit} fullWidth>
 					Send request to Tal & Jake
 				</Button>
 			</Paper>
