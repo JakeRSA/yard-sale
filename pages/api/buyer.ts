@@ -53,8 +53,12 @@ const reserveItem = async ({
 
 const handler = async (req: ReserveItemApiRequest, res: NextApiResponse) => {
 	if (req.method === 'POST') {
-		const result = await reserveItem(req.body);
-		res.status(200).json(result);
+		try {
+			const result = await reserveItem(req.body);
+			res.status(200).json(result);
+		} catch (e) {
+			res.send(e);
+		}
 	}
 };
 
