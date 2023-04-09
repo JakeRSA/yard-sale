@@ -110,7 +110,18 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 				}}
 				currentImage={fullScreenImageToDisplay}
 			/>
-			<CardHeader title={title} />
+			<CardHeader
+				sx={{ display: 'contents' }}
+				title={
+					<Typography
+						noWrap
+						variant="h5"
+						sx={{ ellipsis: 'true', padding: '1em' }}
+					>
+						{title}
+					</Typography>
+				}
+			/>
 			<Swiper
 				grabCursor
 				keyboard={{ enabled: true }}
