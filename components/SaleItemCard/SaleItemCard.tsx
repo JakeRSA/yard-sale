@@ -136,9 +136,7 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 							className={classes.media}
 							image={image.src}
 							onClick={() => {
-								if (window.innerWidth >= 900) {
-									setFullScreenImageToDisplay(image);
-								}
+								setFullScreenImageToDisplay(image);
 							}}
 						/>
 					</SwiperSlide>

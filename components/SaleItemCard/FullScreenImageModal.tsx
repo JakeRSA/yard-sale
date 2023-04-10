@@ -1,7 +1,11 @@
-import { Modal, Paper, IconButton, Grid } from '@mui/material';
+import { Modal, Paper, IconButton, Grid, Box, Button } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 import { Image } from '../../types/generalTypes';
-import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
+import {
+	ArrowBackIos,
+	ArrowForwardIos,
+	FullscreenExit,
+} from '@mui/icons-material';
 
 const useStyles = makeStyles()({
 	gridList: {
@@ -37,6 +41,7 @@ export const FullScreenImageModal = ({
 	currentImage,
 }: IFullScreenImageModalProps) => {
 	const { classes } = useStyles();
+	const smallDevice = window.innerWidth <= 900;
 
 	return (
 		<Modal
@@ -47,11 +52,12 @@ export const FullScreenImageModal = ({
 		>
 			<Paper
 				sx={{
-					height: '90%',
-					width: '90%',
+					height: smallDevice ? '100%' : '90%',
+					width: smallDevice ? '100%' : '90%',
 					display: 'flex',
 					justifyContent: 'center',
 					alignItems: 'center',
+					flexDirection: 'column',
 				}}
 			>
 				<Grid
@@ -81,6 +87,19 @@ export const FullScreenImageModal = ({
 						</IconButton>
 					</Grid>
 				</Grid>
+				{smallDevice && (
+					<Box>
+						<Button
+							variant="contained"
+							sx={{ marginBottom: '1em' }}
+							endIcon={<FullscreenExit />}
+							size="large"
+							onClick={handleClose}
+						>
+							Back to the list
+						</Button>
+					</Box>
+				)}
 			</Paper>
 		</Modal>
 	);
