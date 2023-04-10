@@ -134,7 +134,12 @@ export const ItemReservationFormModal = ({
 							<CircularProgress />
 						</Box>
 					) : (
-						<Button sx={{ marginTop: '2em' }} onClick={handleSubmit} fullWidth>
+						<Button
+							sx={{ marginTop: '2em' }}
+							onClick={handleSubmit}
+							fullWidth
+							disabled={buyerName === '' || buyerPhone === ''}
+						>
 							Send request to Tal & Jake
 						</Button>
 					)}
