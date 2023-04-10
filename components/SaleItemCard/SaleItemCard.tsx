@@ -3,7 +3,6 @@ import { makeStyles } from 'tss-react/mui';
 import {
 	Card,
 	CardHeader,
-	CardMedia,
 	CardContent,
 	CardActions,
 	Typography,
@@ -26,10 +25,9 @@ import { useState } from 'react';
 import { FullScreenImageModal } from './FullScreenImageModal';
 import { ItemReservationFormModal } from './ItemReservationFormModal';
 import { Favorite } from '@mui/icons-material';
+import NextImage from 'next/image';
 const useStyles = makeStyles()({
 	media: {
-		height: 0,
-		paddingTop: '100%',
 		':hover': {
 			cursor: 'zoom-in',
 		},
@@ -131,10 +129,14 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 				className={classes.swiperContainer}
 			>
 				{images.map((image, index) => (
-					<SwiperSlide key={index}>
-						<CardMedia
+					<SwiperSlide key={index} style={{ width: '100%', aspectRatio: '1' }}>
+						<NextImage
+							fill
+							key={index}
 							className={classes.media}
-							image={image.src}
+							src={image.src}
+							alt={item.title}
+							priority={index === 0}
 							onClick={() => {
 								if (window.innerWidth >= 900) {
 									setFullScreenImageToDisplay(image);

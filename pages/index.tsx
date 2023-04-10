@@ -18,14 +18,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import _ from 'lodash';
 
-// interface IAppProps {
-// 	items: SaleItem[];
-// 	cursor?: number;
-// }
-
 function App() {
-	// { items, cursor }: IAppProps
-	// const [sortedItems, setSortedItems] = useState<SaleItem[]>([]);
 	const [itemsFromServer, setItemsFromServer] = useState<SaleItem[]>([]);
 	const [itemsToDisplay, setItemsToDisplay] = useState(itemsFromServer);
 	const [filterValue, setFilterValue] = useState(FilterValue.ALL);
@@ -80,32 +73,32 @@ function App() {
 		};
 	}, [lastElement]);
 
-	// useEffect(() => {
-	// 	const items = itemsFromServer
-	// 		.filter((item: SaleItem) => {
-	// 			switch (filterValue) {
-	// 				case FilterValue.ALL:
-	// 					return item;
-	// 				case FilterValue.AVAILABLE:
-	// 					return !item.buyerIdsOnSaleItem.length;
-	// 				case FilterValue.RESERVED:
-	// 					return !!item.buyerIdsOnSaleItem.length;
-	// 				default:
-	// 					return item;
-	// 			}
-	// 		})
-	// 		.sort((a, b) => {
-	// 			switch (sortValue) {
-	// 				case 'name':
-	// 					return parseInt(a.title) - parseInt(b.title);
-	// 				case 'price':
-	// 					return a.price - b.price;
-	// 				default:
-	// 					return parseInt(a.title) - parseInt(b.title);
-	// 			}
-	// 		});
-	// 	setItemsToDisplay(items);
-	// }, [itemsFromServer, filterValue, sortValue]);
+	useEffect(() => {
+		const items = itemsFromServer;
+		// 		.filter((item: SaleItem) => {
+		// 			switch (filterValue) {
+		// 				case FilterValue.ALL:
+		// 					return item;
+		// 				case FilterValue.AVAILABLE:
+		// 					return !item.buyerIdsOnSaleItem.length;
+		// 				case FilterValue.RESERVED:
+		// 					return !!item.buyerIdsOnSaleItem.length;
+		// 				default:
+		// 					return item;
+		// 			}
+		// 		})
+		// 		.sort((a, b) => {
+		// 			switch (sortValue) {
+		// 				case 'name':
+		// 					return parseInt(a.title) - parseInt(b.title);
+		// 				case 'price':
+		// 					return a.price - b.price;
+		// 				default:
+		// 					return parseInt(a.title) - parseInt(b.title);
+		// 			}
+		// 		});
+		setItemsToDisplay(items);
+	}, [itemsFromServer, filterValue, sortValue]);
 
 	const handleChangeFilterValue = (e: SelectChangeEvent<FilterValue>) => {
 		const newFilterValue = e.target.value as FilterValue;

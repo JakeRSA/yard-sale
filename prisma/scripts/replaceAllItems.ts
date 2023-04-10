@@ -9,7 +9,9 @@ async function main() {
 	await prisma.buyer.deleteMany();
 	await prisma.image.deleteMany();
 	await prisma.saleItem.deleteMany();
-	const client = pcloudSdk.createClient('access_token');
+	const client = pcloudSdk.createClient(
+		'EtRS7Z1Q53NMSGVIZnc2Bo7ZzL3hjE4jkLjjtSAhEioqwjP0Ch9y'
+	);
 	// eslint-disable-next-line
 	const yardSaleFolder = await client.listfolder(16892791281);
 	// @ts-expect-error
@@ -29,11 +31,16 @@ async function main() {
 			// @ts-expect-error
 			itemFolder?.contents?.forEach(async (subItem) => {
 				if (subItem.contenttype === 'image/jpeg') {
-					const src = await client.getfilelink(subItem.fileid as number);
+					// @ts-expect-error
+					const srcFromSubDir = `${itemFolder.name as string}/${
+						subItem.name as string
+					}`;
 					await prisma.image.create({
 						data: {
 							itemId: createdItem.id,
-							src,
+							src:
+								'https://filedn.com/ly26l0AIs1CYrO29uHy9zDm/Yard%20Sale/' +
+								srcFromSubDir,
 						},
 					});
 				}
