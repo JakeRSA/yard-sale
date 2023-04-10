@@ -10,3 +10,12 @@ export interface ReserveItemApiRequestBody {
 export interface ReserveItemApiRequest extends NextApiRequest {
 	body: ReserveItemApiRequestBody;
 }
+
+export interface GetItemsApiRequestParams {
+	cursor?: string;
+	take?: string;
+}
+
+export interface GetItemsApiRequest extends NextApiRequest {
+	params: GetItemsApiRequestParams;
+}
