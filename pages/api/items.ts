@@ -4,15 +4,44 @@ import {
 	GetItemsApiRequest,
 	GetItemsApiRequestParams,
 } from '../../types/apiTypes';
-import { SaleItem } from '../../types/generalTypes';
+import { FilterValue, SaleItem, SortValue } from '../../types/generalTypes';
 
 const prisma = new PrismaClient();
 
-export const getItems = async ({ cursor, take }: GetItemsApiRequestParams) => {
+export const getItems = async ({
+	cursor,
+	take,
+	filter,
+	sort,
+}: GetItemsApiRequestParams) => {
+	const where =
+		filter && filter !== FilterValue.ALL
+			? filter === FilterValue.AVAILABLE
+				? {
+						NOT: {
+							buyers: {
+								some: {},
+							},
+						},
+				  }
+				: {
+						buyers: {
+							some: {},
+						},
+				  }
+			: undefined;
 	const dbItems = await prisma.saleItem.findMany({
 		cursor: cursor ? { id: parseInt(cursor) } : undefined,
-		take: parseInt(take || '20'),
-		orderBy: { id: 'asc' },
+		where,
+		include: {
+			buyers: true,
+		},
+		take: parseInt(take || '12'),
+		orderBy: sort
+			? sort === SortValue.NAME
+				? { title: 'asc' }
+				: SortValue.PRICE && { price: 'asc' }
+			: { id: 'asc' },
 		skip: 1,
 	});
 	const itemIds: number[] = [];

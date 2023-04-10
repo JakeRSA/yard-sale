@@ -9,6 +9,7 @@ import {
 	SxProps,
 	Button,
 	Alert,
+	CardMedia,
 } from '@mui/material';
 import SwiperCore, {
 	Keyboard,
@@ -25,9 +26,10 @@ import { useState } from 'react';
 import { FullScreenImageModal } from './FullScreenImageModal';
 import { ItemReservationFormModal } from './ItemReservationFormModal';
 import { Favorite } from '@mui/icons-material';
-import NextImage from 'next/image';
 const useStyles = makeStyles()({
 	media: {
+		height: 0,
+		paddingTop: '100%',
 		':hover': {
 			cursor: 'zoom-in',
 		},
@@ -129,14 +131,10 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 				className={classes.swiperContainer}
 			>
 				{images.map((image, index) => (
-					<SwiperSlide key={index} style={{ width: '100%', aspectRatio: '1' }}>
-						<NextImage
-							fill
-							key={index}
+					<SwiperSlide key={index}>
+						<CardMedia
 							className={classes.media}
-							src={image.src}
-							alt={item.title}
-							priority={index === 0}
+							image={image.src}
 							onClick={() => {
 								if (window.innerWidth >= 900) {
 									setFullScreenImageToDisplay(image);

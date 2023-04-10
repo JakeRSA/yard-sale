@@ -13,3 +13,14 @@ export interface SaleItem extends DbSaleItem {
 	images: Image[];
 	buyerIdsOnSaleItem: BuyerIdOnSaleItem[];
 }
+
+export enum SortValue {
+	NAME = 'name',
+	PRICE = 'price',
+}
+
+export enum FilterValue {
+	ALL = 'all',
+	AVAILABLE = 'available',
+	RESERVED = 'reserved',
+}

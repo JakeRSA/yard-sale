@@ -6,17 +6,7 @@ import {
 	Select,
 	SelectChangeEvent,
 } from '@mui/material';
-
-export enum SortValue {
-	NAME = 'name',
-	PRICE = 'price',
-}
-
-export enum FilterValue {
-	ALL = 'all',
-	AVAILABLE = 'available',
-	RESERVED = 'reserved',
-}
+import { FilterValue, SortValue } from '../types/generalTypes';
 
 interface ITableToolbarProps {
 	filterValue: FilterValue;

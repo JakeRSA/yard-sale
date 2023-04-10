@@ -1,5 +1,5 @@
 import { NextApiRequest } from 'next';
-import { SaleItem } from './generalTypes';
+import { SaleItem, SortValue, FilterValue } from './generalTypes';
 
 export interface ReserveItemApiRequestBody {
 	item: SaleItem;
@@ -14,6 +14,8 @@ export interface ReserveItemApiRequest extends NextApiRequest {
 export interface GetItemsApiRequestParams {
 	cursor?: string;
 	take?: string;
+	sort?: SortValue;
+	filter?: FilterValue;
 }
 
 export interface GetItemsApiRequest extends NextApiRequest {
