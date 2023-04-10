@@ -26,7 +26,7 @@ export const TableToolbar = ({
 }: ITableToolbarProps) => {
 	return (
 		<Grid container spacing={1} sx={{ marginBottom: '1em' }}>
-			<Grid item xs={6} sm={4} md={3} lg={2}>
+			{/* <Grid item xs={6} sm={4} md={3} lg={2}>
 				<FormControl sx={{ width: '10em', marginRight: '1em' }}>
 					<InputLabel id="filter-select-label">Filter</InputLabel>
 					<Select
@@ -42,7 +42,7 @@ export const TableToolbar = ({
 						<MenuItem value={FilterValue.AVAILABLE}>Available</MenuItem>
 					</Select>
 				</FormControl>
-			</Grid>
+			</Grid> */}
 			<Grid item xs={6} sm={4} md={3} lg={2}>
 				<FormControl sx={{ width: '10em' }}>
 					<InputLabel id="sort-select-label">Sort</InputLabel>
@@ -54,8 +54,10 @@ export const TableToolbar = ({
 						label="sort"
 						onChange={onChangeSort}
 					>
-						<MenuItem value={'name'}>Item</MenuItem>
-						<MenuItem value={'price'}>Price</MenuItem>
+						<MenuItem value={SortValue.NAME_ASC}>A-Z</MenuItem>
+						<MenuItem value={SortValue.NAME_DESC}>Z-A</MenuItem>
+						<MenuItem value={SortValue.PRICE_ASC}>$ Low to High</MenuItem>
+						<MenuItem value={SortValue.PRICE_DESC}>$ High to Low</MenuItem>
 					</Select>
 				</FormControl>
 			</Grid>

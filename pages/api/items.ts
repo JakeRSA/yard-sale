@@ -38,12 +38,19 @@ export const getItems = async ({
 		},
 		take: parseInt(take || '12'),
 		orderBy: sort
-			? sort === SortValue.NAME
+			? sort === SortValue.NAME_ASC
 				? { title: 'asc' }
-				: SortValue.PRICE && { price: 'asc' }
+				: sort === SortValue.NAME_DESC
+				? { title: 'desc' }
+				: sort === SortValue.PRICE_ASC
+				? { price: 'asc' }
+				: sort === SortValue.PRICE_DESC
+				? { price: 'desc' }
+				: { id: 'asc' }
 			: { id: 'asc' },
 		skip: 1,
 	});
+	console.log({dbItems})
 	const itemIds: number[] = [];
 	const items: SaleItem[] = [];
 	dbItems.forEach((dbItem) => {

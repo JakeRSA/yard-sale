@@ -16,7 +16,7 @@ import axios from 'axios';
 function App() {
 	const [itemsToDisplay, setItemsToDisplay] = useState<SaleItem[]>([]);
 	const [filterValue, setFilterValue] = useState(FilterValue.ALL);
-	const [sortValue, setSortValue] = useState(SortValue.NAME);
+	const [sortValue, setSortValue] = useState(SortValue.NAME_ASC);
 	const [itemsCursor, setItemsCursor] = useState<number | undefined>(undefined);
 	const [isLoadingResults, setIsLoadingResults] = useState(true);
 	const [lastElement, setLastElement] = useState<HTMLDivElement | null>(null);
@@ -68,6 +68,7 @@ function App() {
 	}, [lastElement]);
 
 	useEffect(() => {
+		setItemsToDisplay([]);
 		setIsLoadingResults(true);
 		axios
 			.get(`/api/items?filter=${filterValue}&sort=${sortValue}`)
@@ -122,7 +123,7 @@ function App() {
 					onChangeSort={handleChangeSortValue}
 				/>
 				<Grid container spacing={2}>
-					{itemsToDisplay.map((item, index) => renderItemCard(item, index))}
+					{itemsToDisplay.map((item) => renderItemCard(item))}
 				</Grid>
 				{isLoadingResults && (
 					<Box

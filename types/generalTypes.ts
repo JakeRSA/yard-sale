@@ -15,8 +15,10 @@ export interface SaleItem extends DbSaleItem {
 }
 
 export enum SortValue {
-	NAME = 'name',
-	PRICE = 'price',
+	NAME_ASC = 'name_asc',
+	NAME_DESC = 'name_desc',
+	PRICE_ASC = 'price_asc',
+	PRICE_DESC = 'price_desc',
 }
 
 export enum FilterValue {

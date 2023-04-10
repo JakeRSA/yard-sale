@@ -166,7 +166,7 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 						height: '50px',
 					}}
 				>
-					{`${price}₪`}
+					{price ? `${price}₪` : 'Free'}
 					{!!item.buyerIdsOnSaleItem.length && (
 						<Alert
 							sx={{
