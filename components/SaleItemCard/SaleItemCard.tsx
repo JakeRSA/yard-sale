@@ -151,10 +151,10 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 				>
 					{description}
 				</Typography>
-				<Typography
+				{/* <Typography
 					variant="caption"
 					component="p"
-				>{`${x}cm x ${y}cm x ${z}cm`}</Typography>
+				>{`${x}cm x ${y}cm x ${z}cm`}</Typography> */}
 				<Typography
 					variant="h5"
 					sx={{
