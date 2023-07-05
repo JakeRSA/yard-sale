@@ -1,7 +1,3 @@
-// var prompt = require('prompt');
-// var fs = require('fs');
-// var url = require('url');
-// var oauth = require('pcloud-sdk-js').oauth;
 import prompt from 'prompt';
 import fs from 'fs';
 import url from 'url';

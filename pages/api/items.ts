@@ -50,7 +50,6 @@ export const getItems = async ({
 			: { id: 'asc' },
 		skip: 1,
 	});
-	console.log({dbItems})
 	const itemIds: number[] = [];
 	const items: SaleItem[] = [];
 	dbItems.forEach((dbItem) => {

@@ -1,0 +1,654 @@
+[
+    {
+      "id": 32,
+      "name": "שמואל היזמי",
+      "phone": "0532848968",
+      "items": [
+        {
+          "id": 870,
+          "title": "Bookshelf",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 250
+        },
+        {
+          "id": 885,
+          "title": "Glasses (beer glasses - set of 2)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 5
+        },
+        {
+          "id": 914,
+          "title": "Microwave",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 60
+        },
+        {
+          "id": 873,
+          "title": "Bowls (set of 4)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 20
+        },
+        {
+          "id": 874,
+          "title": "Begonia solimutata (with pot)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 150
+        },
+        {
+          "id": 909,
+          "title": "Juicer",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 90
+        },
+        {
+          "id": 920,
+          "title": "Pilea (with pot)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 40
+        },
+        {
+          "id": 929,
+          "title": "Pothos 3 (with pot)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 40
+        }
+      ],
+      "itemNames": [
+        "Bookshelf",
+        "Glasses (beer glasses - set of 2)",
+        "Microwave",
+        "Bowls (set of 4)",
+        "Begonia solimutata (with pot)",
+        "Juicer",
+        "Pilea (with pot)",
+        "Pothos 3 (with pot)"
+      ],
+      "totalAmount": 655
+    },
+    {
+      "id": 33,
+      "name": "Dor - Man U fan",
+      "phone": "528886108",
+      "items": [],
+      "itemNames": [],
+      "totalAmount": 0
+    },
+    {
+      "id": 34,
+      "name": "Anis",
+      "phone": "0546388541",
+      "items": [],
+      "itemNames": [],
+      "totalAmount": 0
+    },
+    {
+      "id": 35,
+      "name": "ליאור זוסייב",
+      "phone": "0528266468",
+      "items": [
+        {
+          "id": 897,
+          "title": "Glasses (lowball - set of 6)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 40
+        }
+      ],
+      "itemNames": ["Glasses (lowball - set of 6)"],
+      "totalAmount": 40
+    },
+    {
+      "id": 37,
+      "name": "Tal bacharach",
+      "phone": "0546303424",
+      "items": [],
+      "itemNames": [],
+      "totalAmount": 0
+    },
+    {
+      "id": 17,
+      "name": "Elia",
+      "phone": "0534367251",
+      "items": [
+        {
+          "id": 896,
+          "title": "Ironing board",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 10
+        },
+        {
+          "id": 908,
+          "title": "Knife block",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 25
+        },
+        {
+          "id": 904,
+          "title": "Lamp",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 35
+        },
+        {
+          "id": 945,
+          "title": "Tent (4 sleeper)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 160
+        },
+        {
+          "id": 951,
+          "title": "Vinyl record mounts (set of 6)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 40
+        },
+        {
+          "id": 948,
+          "title": "Wine glasses (set of 2)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 10
+        },
+        {
+          "id": 952,
+          "title": "Wine glasses 2 (set of 2)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 10
+        },
+        {
+          "id": 887,
+          "title": "Dwarf umbrella tree (with pot)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 160
+        },
+        {
+          "id": 925,
+          "title": "Mugs (ceramic - set of 5)",
+          "description": "One has a chip in it :( But they are very nice",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 15
+        },
+        {
+          "id": 863,
+          "title": "Cafetiere (for 2x cups)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 10
+        }
+      ],
+      "itemNames": [
+        "Ironing board",
+        "Knife block",
+        "Lamp",
+        "Tent (4 sleeper)",
+        "Vinyl record mounts (set of 6)",
+        "Wine glasses (set of 2)",
+        "Wine glasses 2 (set of 2)",
+        "Dwarf umbrella tree (with pot)",
+        "Mugs (ceramic - set of 5)",
+        "Cafetiere (for 2x cups)"
+      ],
+      "totalAmount": 475
+    },
+    {
+      "id": 38,
+      "name": "Tamir",
+      "phone": "0543055432",
+      "items": [
+        {
+          "id": 943,
+          "title": "Rolling pin",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 10
+        }
+      ],
+      "itemNames": ["Rolling pin"],
+      "totalAmount": 10
+    },
+    {
+      "id": 39,
+      "name": "Daniel Godley",
+      "phone": "0533086602",
+      "items": [
+        {
+          "id": 941,
+          "title": "Outdoor furniture (table & 2 chairs)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 270
+        }
+      ],
+      "itemNames": ["Outdoor furniture (table & 2 chairs)"],
+      "totalAmount": 270
+    },
+    {
+      "id": 40,
+      "name": "maxx",
+      "phone": "0533063460",
+      "items": [
+        {
+          "id": 922,
+          "title": "Milk jug",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 0
+        }
+      ],
+      "itemNames": ["Milk jug"],
+      "totalAmount": 0
+    },
+    {
+      "id": 42,
+      "name": "ג׳וי",
+      "phone": "0537340639",
+      "items": [
+        {
+          "id": 915,
+          "title": "MIDI keyboard (Samson Carbon 49)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 150
+        }
+      ],
+      "itemNames": ["MIDI keyboard (Samson Carbon 49)"],
+      "totalAmount": 150
+    },
+    {
+      "id": 41,
+      "name": "אלי",
+      "phone": "0584818107",
+      "items": [],
+      "itemNames": [],
+      "totalAmount": 0
+    },
+    {
+      "id": 16,
+      "name": "Pierre",
+      "phone": "0534367244",
+      "items": [
+        {
+          "id": 876,
+          "title": "Brush (silicon)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 0
+        },
+        {
+          "id": 879,
+          "title": "Garden pots (assorted)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 60
+        }
+      ],
+      "itemNames": ["Brush (silicon)", "Garden pots (assorted)"],
+      "totalAmount": 60
+    },
+    {
+      "id": 18,
+      "name": "Elad Beja",
+      "phone": "0528885004",
+      "items": [
+        {
+          "id": 928,
+          "title": "Picnic set",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 0
+        },
+        {
+          "id": 867,
+          "title": "Chopping board 2",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 5
+        }
+      ],
+      "itemNames": ["Picnic set", "Chopping board 2"],
+      "totalAmount": 5
+    },
+    {
+      "id": 19,
+      "name": "Aviv Asulin",
+      "phone": "0528668859",
+      "items": [],
+      "itemNames": [],
+      "totalAmount": 0
+    },
+    {
+      "id": 20,
+      "name": "Elad ",
+      "phone": "0525607826",
+      "items": [
+        {
+          "id": 898,
+          "title": "Laundry basket",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 15
+        },
+        {
+          "id": 946,
+          "title": "Vacuum cleaner",
+          "description": "Not in great condition but we've been using it and our apartment is clean",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 0
+        },
+        {
+          "id": 864,
+          "title": "Brita water filter",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 25
+        },
+        {
+          "id": 860,
+          "title": "Beach chairs",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 0
+        },
+        {
+          "id": 886,
+          "title": "Framed print",
+          "description": " Print that we got framed from Jake's photos",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 150
+        }
+      ],
+      "itemNames": [
+        "Laundry basket",
+        "Vacuum cleaner",
+        "Brita water filter",
+        "Beach chairs",
+        "Framed print"
+      ],
+      "totalAmount": 190
+    },
+    {
+      "id": 22,
+      "name": "Sapir",
+      "phone": "0587787799",
+      "items": [],
+      "itemNames": [],
+      "totalAmount": 0
+    },
+    {
+      "id": 24,
+      "name": "Ron avidan",
+      "phone": "0545620449",
+      "items": [],
+      "itemNames": [],
+      "totalAmount": 0
+    },
+    {
+      "id": 25,
+      "name": "Assaf peretz",
+      "phone": "0547470294",
+      "items": [],
+      "itemNames": [],
+      "totalAmount": 0
+    },
+    {
+      "id": 23,
+      "name": "Naor ",
+      "phone": "0546447598",
+      "items": [
+        {
+          "id": 890,
+          "title": "Dustbin (large)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 20
+        },
+        {
+          "id": 888,
+          "title": "Fan",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 40
+        },
+        {
+          "id": 911,
+          "title": "Ivy (with pot)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 60
+        },
+        {
+          "id": 942,
+          "title": "Table",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 100
+        }
+      ],
+      "itemNames": ["Dustbin (large)", "Fan", "Ivy (with pot)", "Table"],
+      "totalAmount": 220
+    },
+    {
+      "id": 26,
+      "name": "Michael ",
+      "phone": "0504358768",
+      "items": [
+        {
+          "id": 866,
+          "title": "Chopping board 1",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 5
+        },
+        {
+          "id": 877,
+          "title": "Box grater",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 0
+        }
+      ],
+      "itemNames": ["Chopping board 1", "Box grater"],
+      "totalAmount": 5
+    },
+    {
+      "id": 28,
+      "name": "Yoav Trifman",
+      "phone": "0528139884",
+      "items": [],
+      "itemNames": [],
+      "totalAmount": 0
+    },
+    {
+      "id": 29,
+      "name": "Yoav Trifman ",
+      "phone": "0528139884 ",
+      "items": [
+        {
+          "id": 931,
+          "title": "Pillows (set of 4)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 0
+        },
+        {
+          "id": 939,
+          "title": "Squeegee",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 0
+        }
+      ],
+      "itemNames": ["Pillows (set of 4)", "Squeegee"],
+      "totalAmount": 0
+    },
+    {
+      "id": 27,
+      "name": "Gabriel Godley",
+      "phone": "0586378115",
+      "items": [
+        {
+          "id": 907,
+          "title": "Jars (assorted)",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 25
+        },
+        {
+          "id": 913,
+          "title": "Measuring cups & spoons",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 5
+        },
+        {
+          "id": 953,
+          "title": "Tongs",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 10
+        },
+        {
+          "id": 947,
+          "title": "Wooden spoon",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 0
+        }
+      ],
+      "itemNames": [
+        "Jars (assorted)",
+        "Measuring cups & spoons",
+        "Tongs",
+        "Wooden spoon"
+      ],
+      "totalAmount": 40
+    },
+    {
+      "id": 30,
+      "name": "Shay",
+      "phone": "0542132229 ",
+      "items": [],
+      "itemNames": [],
+      "totalAmount": 0
+    },
+    {
+      "id": 31,
+      "name": "Bariush",
+      "phone": "0546702233",
+      "items": [
+        {
+          "id": 905,
+          "title": "Microphone stand",
+          "description": " ",
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "price": 70
+        }
+      ],
+      "itemNames": ["Microphone stand"],
+      "totalAmount": 70
+    }
+  ]
+  
