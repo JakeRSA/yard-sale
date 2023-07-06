@@ -13,7 +13,7 @@ import { SaleItemCard } from '../SaleItemCard/SaleItemCard';
 import { InfiniteData, useInfiniteQuery } from 'react-query';
 import axios, { AxiosResponse } from 'axios';
 
-const ItemCard = ({
+const CardsGridItem = ({
 	item,
 	setLastElement,
 	shouldObserveIntersection = false,
@@ -52,7 +52,7 @@ const ItemCardsGrid = ({
 						const shouldObserveIntersection =
 							i === data.pages.length - 1 && j === group.data.items.length - 6;
 						return (
-							<ItemCard
+							<CardsGridItem
 								item={item}
 								setLastElement={setLastElement}
 								shouldObserveIntersection={shouldObserveIntersection}

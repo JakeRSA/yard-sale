@@ -1,5 +1,3 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { makeStyles } from 'tss-react/mui';
 import {
 	Card,
 	CardHeader,
@@ -9,54 +7,45 @@ import {
 	SxProps,
 	Button,
 	Alert,
-	CardMedia,
+	Box,
+	IconButton,
 } from '@mui/material';
-import SwiperCore, {
-	Keyboard,
-	Scrollbar,
-	Pagination,
-	Navigation,
-} from 'swiper';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import { styled } from '@mui/material/styles';
 import { Image, SaleItem } from '../../types/generalTypes';
 import { useState } from 'react';
 import { FullScreenImageModal } from './FullScreenImageModal';
 import { ItemReservationFormModal } from './ItemReservationFormModal';
-import { Favorite } from '@mui/icons-material';
-const useStyles = makeStyles()({
-	media: {
-		height: 0,
-		paddingTop: '100%',
-		':hover': {
-			cursor: 'zoom-in',
-		},
-	},
-	swiperContainer: {
-		paddingBottom: '3rem',
-		'& .swiper-pagination-bullet': {
-			background: 'blue',
-		},
-		'& .swiper-button-next:after': {
-			fontSize: '2rem !important',
-		},
-		'& .swiper-button-prev:after': {
-			fontSize: '2rem !important',
-		},
-	},
-});
-SwiperCore.use([Keyboard, Scrollbar, Pagination, Navigation]);
+import { ArrowBackIos, ArrowForwardIos, Favorite } from '@mui/icons-material';
+import 'keen-slider/keen-slider.min.css';
+import { useKeenSlider } from 'keen-slider/react';
+import NextImage from 'next/image';
 
 interface ISaleItemCardProps {
 	item: SaleItem;
 	sx?: SxProps;
 }
 
+const ImageBox = styled(Box)(({ theme }) => ({
+	[theme.breakpoints.down('md')]: {
+		height: '350px',
+	},
+	[theme.breakpoints.up('md')]: {
+		height: '300px',
+	},
+	[theme.breakpoints.up('lg')]: {
+		height: '200px',
+	},
+}));
+
+const HeaderTitle = styled(Typography)(({ theme }) => ({
+	[theme.breakpoints.down('md')]: {
+		noWrap: false,
+		display: 'flex',
+	},
+}));
+
 export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
-	const { title, description, images, x, y, z, price } = item;
-	const { classes } = useStyles();
+	const { title, description, images, price } = item;
 	const [fullScreenImageToDisplay, setFullScreenImageToDisplay] = useState<
 		Image | undefined
 	>(undefined);
@@ -65,6 +54,14 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 	const openReserveItemForm = () => {
 		setIsReserveItemModalOpen(true);
 	};
+
+	const [sliderRef, slider] = useKeenSlider(
+		{
+			slideChanged() {},
+			loop: true,
+		},
+		[]
+	);
 
 	const getNextImage = (image?: Image) => {
 		if (image) {
@@ -90,6 +87,54 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 		}
 	};
 
+	// TODO: description on hover
+	const imageSlider = () => {
+		return (
+			<div ref={sliderRef} className="keen-slider">
+				<IconButton
+					onClick={() => {
+						slider.current?.prev();
+					}}
+					style={{
+						zIndex: 1,
+						position: 'absolute',
+						top: 'calc(50% - 25.5px)',
+						left: '4px',
+					}}
+				>
+					<ArrowBackIos fontSize="large" />
+				</IconButton>
+				{images.map((image, index) => (
+					<ImageBox key={index} width="100%" className="keen-slider__slide">
+						<NextImage
+							key={index}
+							src={image.src}
+							onClick={() => {
+								setFullScreenImageToDisplay(image);
+							}}
+							alt={image.src}
+							fill
+							style={{ objectFit: 'cover' }}
+						/>
+					</ImageBox>
+				))}
+				<IconButton
+					onClick={() => {
+						slider.current?.next();
+					}}
+					style={{
+						zIndex: 1,
+						position: 'absolute',
+						top: 'calc(50% - 25.5px)',
+						right: '4px',
+					}}
+				>
+					<ArrowForwardIos fontSize="large" />
+				</IconButton>
+			</div>
+		);
+	};
+
 	return (
 		<Card sx={sx}>
 			<ItemReservationFormModal
@@ -110,51 +155,19 @@ export const SaleItemCard = ({ item, sx }: ISaleItemCardProps) => {
 				}}
 				currentImage={fullScreenImageToDisplay}
 			/>
+			{/* TODO: handle overflow title ui */}
 			<CardHeader
-				sx={{ display: 'contents' }}
+				style={{ display: 'block' }}
+				titleTypographyProps={{ noWrap: true }}
 				title={
-					<Typography
-						noWrap
-						variant="h5"
-						sx={{ ellipsis: 'true', padding: '1em' }}
-					>
+					<HeaderTitle variant="h5" noWrap>
 						{title}
-					</Typography>
+					</HeaderTitle>
 				}
+				height={'2rem'}
 			/>
-			<Swiper
-				grabCursor
-				keyboard={{ enabled: true }}
-				pagination={{ clickable: true }}
-				navigation
-				loop
-				className={classes.swiperContainer}
-			>
-				{images.map((image, index) => (
-					<SwiperSlide key={index}>
-						<CardMedia
-							className={classes.media}
-							image={image.src}
-							onClick={() => {
-								setFullScreenImageToDisplay(image);
-							}}
-						/>
-					</SwiperSlide>
-				))}
-			</Swiper>
+			{imageSlider()}
 			<CardContent>
-				<Typography
-					variant="body2"
-					color="textSecondary"
-					component="p"
-					height="3em"
-				>
-					{description}
-				</Typography>
-				{/* <Typography
-					variant="caption"
-					component="p"
-				>{`${x}cm x ${y}cm x ${z}cm`}</Typography> */}
 				<Typography
 					variant="h5"
 					sx={{
